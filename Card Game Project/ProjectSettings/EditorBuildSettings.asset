@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Card Game/Scenes/MainTown.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Card Game/Scenes/DungeonScene.unity
+    guid: d2cb955da5b2d2d4587d8b5775536fd9
+  - enabled: 1
+    path: Assets/Card Game/Scenes/FallingScene.unity
+    guid: 31b1664ca1f5036428455fd284bbcb39
   m_configObjects: {}
