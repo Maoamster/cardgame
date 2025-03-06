@@ -4,11 +4,15 @@ public class PlayerBehavior : MonoBehaviour
 {
     [Header("Movement Settings")]
     public float moveSpeed = 5f;
+    public float jumpForce = 8f;
+    public float groundCheckDistance = 0.2f;
+    public LayerMask groundLayer;
 
     private Rigidbody myRigidbody;
     private Vector3 moveInput;
     private Transform body;
     private Transform cameraTransform;
+    private bool isGrounded;
 
     void Start()
     {
@@ -27,6 +31,7 @@ public class PlayerBehavior : MonoBehaviour
             Debug.LogError("Rigidbody not found on Body!");
         }
 
+        myRigidbody.freezeRotation = true;
         cameraTransform = Camera.main.transform;
     }
 
@@ -45,13 +50,25 @@ public class PlayerBehavior : MonoBehaviour
 
         moveInput = cameraForward * moveZ + cameraRight * moveX;
         moveInput.Normalize();
+
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        {
+            Jump();
+        }
     }
 
     void FixedUpdate()
     {
         if (myRigidbody != null)
         {
-            myRigidbody.MovePosition(myRigidbody.position + moveInput * moveSpeed * Time.fixedDeltaTime);
+            Vector3 targetVelocity = moveInput * moveSpeed;
+            myRigidbody.velocity = Vector3.Lerp(myRigidbody.velocity, targetVelocity, 0.1f); 
         }
+    }
+
+
+    void Jump()
+    {
+        myRigidbody.velocity = new Vector3(myRigidbody.velocity.x, jumpForce, myRigidbody.velocity.z);
     }
 }

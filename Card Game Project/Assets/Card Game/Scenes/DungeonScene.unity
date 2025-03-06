@@ -191,6 +191,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4837769170a6384f860e63058565298, type: 3}
+--- !u!4 &147837657 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1213614446608382288, guid: d4837769170a6384f860e63058565298,
+    type: 3}
+  m_PrefabInstance: {fileID: 147837656}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &443739558
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -322,6 +328,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CinemachineCamera
       objectReference: {fileID: 0}
+    - target: {fileID: 8818726014979617343, guid: d8b51080a2698394f855462402b0fbf8,
+        type: 3}
+      propertyPath: m_Follow
+      value: 
+      objectReference: {fileID: 147837657}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
